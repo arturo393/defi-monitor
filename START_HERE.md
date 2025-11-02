@@ -18,37 +18,20 @@ Todo está configurado y listo. Aquí está exactamente qué hacer ahora mismo.
 
 ## 🎯 TU PRÓXIMA ACCIÓN (AHORA MISMO)
 
-### DN-1: Crear Cuenta en Beehiiv (15 minutos)
+### 📝 DN-1: Setup Substack Account (Prioridad Alta) - GRATIS ✅
 
-**Paso 1:** Ir a Beehiiv
-```bash
-open https://beehiiv.com
-```
+**¿Por qué Substack?**
+- ✅ 100% GRATIS para siempre
+- ✅ Suscriptores ILIMITADOS
+- ✅ Emails ILIMITADOS
+- ✅ Cero costos ocultos
 
-**Paso 2:** Crear cuenta (Sign Up)
-- Usa tu email: a.veras@gmail.com
-- Crea una contraseña segura
-- Verifica tu email
+**Pasos:**
+1. Ve a [Substack.com](https://substack.com) y crea una cuenta GRATIS
+2. Configura tu publicación (nombre, descripción)
+3. ¡Listo! Ya puedes publicar
 
-**Paso 3:** Configurar tu publicación
-- Nombre: "DeFi Weekly" (o el que prefieras)
-- Descripción: "Newsletter semanal sobre protocolos DeFi"
-- URL: elige un slug único
-
-**Paso 4:** Obtener API credentials
-- Ve a Settings → API
-- Crea un API Key
-- Copia el Publication ID
-
-**Paso 5:** Actualizar .env
-```bash
-nano .env
-```
-Edita estas líneas:
-```
-BEEHIIV_API_KEY=tu_api_key_aqui
-BEEHIIV_PUBLICATION_ID=tu_publication_id_aqui
-```
+**Nota:** Beehiiv requiere pago para API. Substack es mejor opción gratuita.
 
 **Paso 6:** Marcar como completado
 ```bash
