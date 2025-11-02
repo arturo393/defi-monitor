@@ -20,8 +20,9 @@ def fetch_top_protocols(limit=10):
         response.raise_for_status()
         
         protocols = response.json()
-        # Ordenar por TVL y tomar los top N
-        top_protocols = sorted(protocols, key=lambda x: x.get('tvl', 0), reverse=True)[:limit]
+        # Ordenar por TVL y tomar los top N (filtrar los que tienen TVL)
+        protocols_with_tvl = [p for p in protocols if p.get('tvl') is not None]
+        top_protocols = sorted(protocols_with_tvl, key=lambda x: x.get('tvl', 0), reverse=True)[:limit]
         
         return top_protocols
     except Exception as e:

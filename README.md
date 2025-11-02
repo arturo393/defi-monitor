@@ -32,27 +32,44 @@ defi-newsletter/
 
 ## 🚀 Quick Start
 
-1. **Clonar el repo:**
-```bash
-git clone https://github.com/arturo393/defi-newsletter.git
-cd defi-newsletter
-```
+### Setup Inicial (Primera vez)
 
-2. **Instalar dependencias:**
 ```bash
+# 1. Instalar dependencias
 pip install -r requirements.txt
+
+# 2. Ejecutar setup interactivo
+python scripts/setup_initial.py
 ```
 
-3. **Configurar variables de entorno:**
+El script de setup te guiará para:
+- ✅ Crear archivo `.env`
+- ✅ Configurar Jira (email + API token)
+- ✅ Configurar Beehiiv (opcional)
+- ✅ Crear issues iniciales en Jira
+
+### Configuración Manual
+
+Si prefieres configurar manualmente:
+
 ```bash
+# 1. Copiar archivo de entorno
 cp .env.example .env
-# Edita .env con tus API keys
-```
 
-4. **Ejecutar primer script:**
-```bash
+# 2. Editar .env con tus credenciales
+nano .env
+
+# 3. Crear issues en Jira
+python scripts/jira_integration.py
+
+# 4. Probar scripts
 python scripts/collect_defi_data.py
 ```
+
+### 📋 Accesos Rápidos
+
+- **Jira Board:** https://averas-1744767979220.atlassian.net/jira/software/projects/DN/boards/133
+- **Obtener API Token:** https://id.atlassian.com/manage-profile/security/api-tokens
 
 ## 📊 Roadmap
 
