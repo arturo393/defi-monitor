@@ -88,6 +88,8 @@
             border-radius: 8px;
             padding: 16px;
             transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
         }
         .card:hover {
             border-color: #0066ff;
@@ -110,6 +112,109 @@
             border-top: 1px solid #222;
             font-size: 0.8em;
             color: #666;
+        }
+        .card .view-demo {
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: #0066ff;
+            color: #fff;
+            font-size: 0.75em;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            padding: 32px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #222;
+            color: #999;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            transition: all 0.2s;
+        }
+        .modal-close:hover {
+            background: #333;
+            color: #fff;
+        }
+        .modal h3 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .modal .modal-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 24px;
+        }
+        .modal-demo {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.6;
+            color: #e5e5e5;
+            overflow-x: auto;
+        }
+        .modal-demo .output {
+            color: #00ff88;
+        }
+        .modal-demo .comment {
+            color: #666;
+        }
+        .modal-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .modal-link {
+            padding: 10px 20px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .modal-link:hover {
+            background: #0066ff;
         }
         
         .service-card {
@@ -253,22 +358,155 @@
 
         <h2 id="work" style="color: #fff; font-size: 1.5em; margin-bottom: 16px; font-weight: 600;">Selected Work</h2>
         <div class="grid-3">
-            <div class="card">
+            <div class="card" onclick="openModal('decision')">
                 <h3>Decision Framework</h3>
                 <p>C++17 quantitative framework with 13 methodologies: Monte Carlo, TOPSIS, Pareto, Bayesian, VaR/CVaR, Real Options.</p>
                 <div class="meta">Production-ready · Documented</div>
+                <span class="view-demo">View Demo →</span>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openModal('defi')">
                 <h3>DeFi Monitor</h3>
                 <p>Automated yield tracker with DeFi Llama API + GitHub Actions. 6h collection cycles, APY alerts, Git versioning.</p>
                 <div class="meta">Python · Automated</div>
+                <span class="view-demo">View Demo →</span>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openModal('simulation')">
                 <h3>Business Simulations</h3>
                 <p>Monte Carlo models with weighted factors. Multi-perspective analysis: risk, regret, real options, sensitivity.</p>
                 <div class="meta">Quantitative · Consulting</div>
+                <span class="view-demo">View Demo →</span>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="modal-decision" class="modal" onclick="closeModal('decision')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal('decision')">×</button>
+                <h3>Decision Framework</h3>
+                <p class="modal-meta">C++17 · 13 Methodologies · Production-ready</p>
+                
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 20px;">
+                    Comprehensive decision analysis framework for evaluating business alternatives using multiple quantitative methodologies. 
+                    Example: evaluating 4 options for DeFi Monitor project with 6 weighted factors.
+                </p>
+                
+                <div class="modal-demo">
+<span class="comment">// Monte Carlo Simulation (20,000 iterations)</span>
+
+RESULTS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Option #1: Focus Freelance
+  <span class="output">Score: 67.8 | Ganancia 12m: $15,600 | Riesgo: 0.12</span>
+  Tiempo semanal: 0.5h | Users: 0 | Diferenciación: 8.2
+
+Option #2: Newsletter Premium  
+  Score: 61.2 | Ganancia 12m: $11,100 | Riesgo: 0.35
+  Tiempo semanal: 10.7h | Users: 4,200 | Diferenciación: 6.8
+
+Option #3: Open Source + Sponsors
+  Score: 58.4 | Ganancia 12m: $5,700 | Riesgo: 0.22
+  
+Option #4: DeFi Monitor SaaS
+  Score: 54.1 | Ganancia 12m: $4,900 | Riesgo: 0.41
+
+<span class="comment">// Sensitivity Analysis</span>
+Most influential: Ganancia 12m (2199.7)
+Second: Satisfacción (16.3), Riesgo (13.9)
+
+<span class="output">RECOMMENDATION: Focus Freelance ✓</span>
+                </div>
+                
+                <div class="modal-links">
+                    <a href="https://github.com/arturo393/desicion-maker" target="_blank" class="modal-link">View Code →</a>
+                    <a href="#contact" class="modal-link" onclick="closeModal('decision')">Hire for Similar →</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-defi" class="modal" onclick="closeModal('defi')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal('defi')">×</button>
+                <h3>DeFi Monitor</h3>
+                <p class="modal-meta">Python · DeFi Llama API · GitHub Actions</p>
+                
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 20px;">
+                    Automated yield monitoring system that tracks top DeFi protocols every 6 hours. 
+                    Alerts when APY > 50%, stores historical data in Git for analysis.
+                </p>
+                
+                <div class="modal-demo">
+<span class="comment"># Automated Collection (every 6h via GitHub Actions)</span>
+
+Fetching DeFi protocols...
+<span class="output">✓ Successfully fetched 10 protocols</span>
+
+TOP PROTOCOLS BY TVL:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Binance CEX      <span class="output">$162.52B</span>
+2. Aave V3          <span class="output">$30.84B</span>   APY: 3.2%
+3. Lido             <span class="output">$24.18B</span>   APY: 2.8%
+4. JustLend         <span class="output">$11.61B</span>   APY: 4.1%
+5. Uniswap          <span class="output">$7.45B</span>    APY: 0.3%
+
+<span class="comment"># Alert System</span>
+⚠️  Alert: Protocol X APY jumped to 52.3%
+    Trigger: APY > 50%
+    Action: Notify via JSON + future SMTP
+
+<span class="output">✓ Data saved to data/protocols.json</span>
+<span class="output">✓ Committed to Git (auto-versioning)</span>
+                </div>
+                
+                <div class="modal-links">
+                    <a href="https://github.com/arturo393/defi-monitor" target="_blank" class="modal-link">View Code →</a>
+                    <a href="#contact" class="modal-link" onclick="closeModal('defi')">Hire for Dashboard →</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-simulation" class="modal" onclick="closeModal('simulation')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal('simulation')">×</button>
+                <h3>Business Simulations</h3>
+                <p class="modal-meta">Monte Carlo · Multi-criteria · Risk Analysis</p>
+                
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 20px;">
+                    Quantitative business modeling with weighted factors and probabilistic outcomes. 
+                    Multi-perspective recommendations: risk minimization, regret analysis, real options value.
+                </p>
+                
+                <div class="modal-demo">
+<span class="comment">// Business Scenario: Launch Strategy</span>
+
+FACTORS (weighted):
+• Revenue Potential     35%  →  Distribution: Triangular
+• Time Investment       15%  →  Distribution: Normal  
+• Market Risk          15%  →  Distribution: Beta
+• User Growth          15%  →  Distribution: Poisson
+• Differentiation      10%  →  Distribution: Uniform
+• Satisfaction         10%  →  Distribution: Categorical
+
+<span class="comment">// Simulation: 20,000 iterations</span>
+
+RESULTS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<span class="output">Risk-Minimized Choice:</span>  Option B (Risk: 0.18)
+<span class="output">Regret-Minimized:</span>      Option A (Max Regret: $2.3k)
+<span class="output">Real Option Value:</span>     Option A ($18.7k NPV + $3.2k option)
+<span class="output">Pareto Optimal:</span>        Options A, B (non-dominated)
+
+<span class="comment">// Sensitivity: Most influential factor</span>
+Revenue Potential: <span class="output">Δ2,199.7</span> (highest impact)
+
+RECOMMENDATION: <span class="output">Option A with staged rollout</span>
+                </div>
+                
+                <div class="modal-links">
+                    <a href="https://github.com/arturo393/desicion-maker" target="_blank" class="modal-link">View Code →</a>
+                    <a href="#contact" class="modal-link" onclick="closeModal('simulation')">Hire for Modeling →</a>
+                </div>
             </div>
         </div>
 
@@ -314,5 +552,25 @@
             <p style="margin-top: 8px; color: #444;">© 2025 Arturo · Data & Automation Engineer</p>
         </footer>
     </div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById('modal-' + type).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(type) {
+            document.getElementById('modal-' + type).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
