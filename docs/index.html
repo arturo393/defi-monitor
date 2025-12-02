@@ -3,235 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arturo - Data & Automation Engineer</title>
+    <title>Arturo | Data & Automation</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.4;
-            color: #1a1a1a;
-            max-width: 720px;
+            color: #e5e5e5;
+            background: #0a0a0a;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 24px 24px;
-            background: #fafafa;
-            font-size: 15px;
+            padding: 16px 20px;
         }
         header {
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 12px;
-            margin-bottom: 24px;
-        }
-        h1 { 
-            font-size: 1.8em; 
-            margin-bottom: 4px; 
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-        .tagline { 
-            font-size: 0.9em; 
-            color: #666;
-            margin-top: 4px;
-        }
-        .section {
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-        .section:last-of-type {
-            border-bottom: none;
-        }
-        h2 {
-            color: #0066cc;
-            margin-bottom: 12px;
-            font-weight: 600;
-            font-size: 1.15em;
-        }
-        .intro {
-            color: #333;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-        .project {
-            margin-bottom: 12px;
-            padding: 10px 12px;
-            background: #fff;
-            border-left: 3px solid #0066cc;
-        }
-        .project h3 { 
-            color: #1a1a1a; 
-            margin-bottom: 4px;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-        .project p { 
-            color: #555; 
-            margin: 3px 0; 
-            line-height: 1.4;
-            font-size: 0.85em;
-        }
-        .service {
-            margin: 8px 0;
-            padding: 10px 12px;
-            background: #fff;
-            border-left: 3px solid #00aa44;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            padding: 12px 0;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #222;
         }
-        .service h4 { 
-            color: #1a1a1a; 
+        h1 { 
+            font-size: 1.4em; 
             font-weight: 600;
-            font-size: 0.9em;
-            flex: 1;
-        }
-        .price { 
-            color: #00aa44; 
-            font-weight: 700;
-            font-size: 0.85em;
-            white-space: nowrap;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
-        }
-        .skill {
-            background: #1a1a1a;
             color: #fff;
-            padding: 4px 10px;
-            font-size: 0.75em;
-            font-weight: 500;
-            border-radius: 3px;
+            letter-spacing: -0.02em;
         }
-        .cta {
-            background: #0066cc;
-            color: white;
-            padding: 10px 24px;
+        .nav {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85em;
+        }
+        .nav a {
+            color: #999;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            border-radius: 4px;
-            font-size: 0.9em;
+            transition: color 0.2s;
         }
-        .cta:hover { 
-            background: #0052a3;
+        .nav a:hover { color: #0066ff; }
+        
+        .hero {
+            margin-bottom: 40px;
+            padding: 32px 0;
         }
-        .compact-info {
+        .hero h2 {
+            font-size: 2.8em;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: #fff;
+            letter-spacing: -0.03em;
+        }
+        .hero .highlight {
+            background: linear-gradient(90deg, #0066ff, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.1em;
+            color: #999;
+            max-width: 600px;
+            margin-bottom: 24px;
+        }
+        
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            margin-top: 8px;
+            margin-bottom: 32px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s;
+        }
+        .card:hover {
+            border-color: #0066ff;
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1em;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .card p {
+            font-size: 0.85em;
+            color: #888;
+            line-height: 1.4;
+        }
+        .card .meta {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #222;
+            font-size: 0.8em;
+            color: #666;
+        }
+        
+        .service-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .service-card h4 {
+            font-size: 0.9em;
+            color: #fff;
+            font-weight: 600;
+        }
+        .service-card .price {
+            color: #00ff88;
+            font-weight: 700;
             font-size: 0.9em;
         }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .skill {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #999;
+            padding: 6px 12px;
+            font-size: 0.75em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .btn {
+            background: #0066ff;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: #0052cc;
+            transform: translateY(-1px);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 32px;
+            padding: 20px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            margin: 32px 0;
+        }
+        .stat {
+            flex: 1;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
         footer {
             text-align: center;
-            padding: 16px 0;
-            color: #888;
-            margin-top: 24px;
-            border-top: 1px solid #e5e5e5;
+            padding: 32px 0 20px;
+            color: #555;
             font-size: 0.8em;
+            border-top: 1px solid #222;
+            margin-top: 48px;
         }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { color: #0052a3; text-decoration: underline; }
-        strong { color: #1a1a1a; font-weight: 600; }
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        footer a:hover { color: #0066ff; }
         
         @media (max-width: 768px) {
-            body { padding: 20px 16px; font-size: 14px; }
-            h1 { font-size: 1.6em; }
-            .compact-info { grid-template-columns: 1fr; gap: 10px; }
-            .service { flex-direction: column; align-items: flex-start; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 2em; }
+            .stats { flex-direction: column; gap: 16px; }
+            .nav { display: none; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Arturo</h1>
-        <p class="tagline">Data & Automation Engineer</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Arturo</h1>
+            <nav class="nav">
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-    <div class="section">
-        <p class="intro">Data automation, quantitative decision modeling, and CI/CD pipelines for finance/DeFi applications. Fast delivery · Clear scope · Production-ready code.</p>
-        <div class="skills">
-            <span class="skill">Python</span>
-            <span class="skill">C++17</span>
-            <span class="skill">GitHub Actions</span>
-            <span class="skill">APIs</span>
-            <span class="skill">Monte Carlo</span>
-            <span class="skill">CI/CD</span>
+        <div class="hero">
+            <h2>Build. <span class="highlight">Automate.</span> Scale.</h2>
+            <p>Data automation, quantitative modeling, and CI/CD for DeFi/finance. Production-ready code. Fast delivery.</p>
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">C++17</span>
+                <span class="skill">GitHub Actions</span>
+                <span class="skill">Monte Carlo</span>
+                <span class="skill">CI/CD</span>
+                <span class="skill">APIs</span>
+            </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>Work</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">48h</div>
+                <div class="stat-label">Demo Delivery</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$25/h</div>
+                <div class="stat-label">Hourly Rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5-10h</div>
+                <div class="stat-label">Weekly Capacity</div>
+            </div>
+        </div>
+
+        <h2 id="work" style="color: #fff; font-size: 1.5em; margin-bottom: 16px; font-weight: 600;">Selected Work</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Decision Framework</h3>
+                <p>C++17 quantitative framework with 13 methodologies: Monte Carlo, TOPSIS, Pareto, Bayesian, VaR/CVaR, Real Options.</p>
+                <div class="meta">Production-ready · Documented</div>
+            </div>
+
+            <div class="card">
+                <h3>DeFi Monitor</h3>
+                <p>Automated yield tracker with DeFi Llama API + GitHub Actions. 6h collection cycles, APY alerts, Git versioning.</p>
+                <div class="meta">Python · Automated</div>
+            </div>
+
+            <div class="card">
+                <h3>Business Simulations</h3>
+                <p>Monte Carlo models with weighted factors. Multi-perspective analysis: risk, regret, real options, sensitivity.</p>
+                <div class="meta">Quantitative · Consulting</div>
+            </div>
+        </div>
+
+        <h2 id="services" style="color: #fff; font-size: 1.5em; margin: 32px 0 16px; font-weight: 600;">Fixed-Price Services</h2>
         
-        <div class="project">
-            <h3>Decision-Maker Framework</h3>
-            <p>C++17 quantitative framework with 13 methodologies: Monte Carlo, TOPSIS, Pareto, Bayesian, VaR/CVaR, Real Options. Reusable with full documentation.</p>
-        </div>
-
-        <div class="project">
-            <h3>DeFi Monitor</h3>
-            <p>Automated yield tracker: Python + DeFi Llama API + GitHub Actions. Data collection every 6h, alerts for APY > 50%, Git versioning.</p>
-        </div>
-
-        <div class="project">
-            <h3>Business Simulations</h3>
-            <p>Monte Carlo models with weighted factors. Multi-perspective recommendations: risk, regret, real option value, sensitivity.</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Services</h2>
-        
-        <div class="service">
+        <div class="service-card">
             <h4>DeFi Dashboard + Alerts</h4>
             <span class="price">$250 (3d)</span>
         </div>
 
-        <div class="service">
+        <div class="service-card">
             <h4>CI/CD + Monitoring</h4>
             <span class="price">$300 (4d)</span>
         </div>
 
-        <div class="service">
+        <div class="service-card">
             <h4>Decision Simulator (Monte Carlo)</h4>
             <span class="price">$450 (5d)</span>
         </div>
 
-        <div class="service">
+        <div class="service-card">
             <h4>Data API (MVP)</h4>
             <span class="price">$900 (7-10d)</span>
         </div>
 
-        <div class="service">
-            <h4>Project Audit (2h)</h4>
-            <span class="price">$120</span>
+        <div class="service-card">
+            <h4>Project Audit</h4>
+            <span class="price">$120 (2h)</span>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <div class="compact-info">
-            <div>
-                <p><strong>Availability:</strong> 5-10h/week</p>
-                <p><strong>Rate:</strong> $25/h (packages available)</p>
-                <p><strong>Languages:</strong> English, Spanish</p>
-            </div>
-            <div>
-                <p><a href="https://github.com/arturo393" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a></p>
-                <p style="margin-top: 12px;">Working demo in 48h to align on scope.</p>
-                <a href="mailto:tu-email@example.com" class="cta">Get in touch</a>
-            </div>
+        <div id="contact" style="margin-top: 48px; text-align: center;">
+            <h2 style="color: #fff; font-size: 1.8em; margin-bottom: 12px; font-weight: 600;">Ready to build?</h2>
+            <p style="color: #999; margin-bottom: 20px;">Working demo in 48 hours. Clear scope. Production-ready code.</p>
+            <a href="mailto:tu-email@example.com" class="btn">Get in touch →</a>
         </div>
-    </div>
 
-    <footer>
-        <p>© 2025 Arturo — Data & Automation Engineer</p>
-        <p>Fast delivery · Clear scope · Production-ready code</p>
-    </footer>
+        <footer>
+            <p>
+                <a href="https://github.com/arturo393" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
+                <a href="mailto:tu-email@example.com">Email</a>
+            </p>
+            <p style="margin-top: 8px; color: #444;">© 2025 Arturo · Data & Automation Engineer</p>
+        </footer>
+    </div>
 </body>
 </html>
