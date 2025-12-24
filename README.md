@@ -1,277 +1,205 @@
-# 📊 DeFi Monitor - Dashboard Automatizado
+# 💼 Freelance Portfolio - Arturo
 
-> Monitor automatizado de yields en DeFi - Tracking en tiempo real de protocolos DeFi con alertas inteligentes
+> Starter kit para freelancers: Portfolio web, templates y estrategia de negocio
 
-[![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=github-actions)](https://github.com/arturo393/defi-monitor/actions)
-[![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 🎯 Objetivo
+## 🎯 ¿Qué es esto?
 
-Crear un dashboard automatizado que:
-- 📊 **Monitorea yields** de 20+ protocolos DeFi en tiempo real
-- 🔔 **Envía alertas** cuando yields superan umbrales configurables
-- 📈 **Guarda histórico** de APYs para análisis de tendencias
-- 🤖 **Actualiza automáticamente** cada 6 horas vía GitHub Actions
-- 💰 **Genera ingresos** mediante suscripciones ($15/mes)
+Un **portfolio profesional** y **starter kit completo** para freelancers que incluye:
+
+- 🎨 **Portfolio web** moderno y responsive (`docs/index.html`)
+- 📝 **Templates de propuestas** para proyectos
+- 💼 **Catálogo de servicios** con pricing
+- 📧 **Scripts de outreach** para clientes
+- 📊 **Plan de negocio** 30-60-90 días
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Quick Start
 
-- **Python 3.11** - Backend y automatización
-- **DeFi Llama API** - Datos en tiempo real de protocolos DeFi
-- **GitHub Actions** - CI/CD y automatización de updates
-- **Jira** - Project management y tracking
-- **JSON** - Formato de datos para dashboard
+### 1. Ver el portfolio
+
+```bash
+# Abrir portfolio en navegador
+open docs/index.html
+
+# O servir localmente
+cd docs/
+python3 -m http.server 8000
+# Visita: http://localhost:8000
+```
+
+### 2. Personalizar contenido
+
+Edita el portfolio en `docs/index.html` con tu información:
+- Nombre y tagline
+- Proyectos realizados
+- Skills y tecnologías
+- Links de contacto
+
+### 3. Usar templates
+
+Los templates están en `/docs`:
+
+```bash
+# Ver catálogo de servicios
+cat docs/SERVICES_CATALOG.md
+
+# Ver templates de propuestas
+cat docs/PROPOSAL_TEMPLATES.md
+
+# Plan de negocio
+cat docs/FREELANCE_PLAN_30-60-90.md
+```
 
 ---
 
 ## 📁 Estructura del Proyecto
 
 ```
-defi-monitor/
-├── .github/
-│   └── workflows/
-│       └── monitor-dashboard.yml    # Automation (cada 6h)
-
-## Modo Silencioso
-- Sin notificaciones externas: no Email/SMS.
-- Genera solo logs y `data/dashboard.json`.
-- `JIRA_PROJECT_KEY=DM` y `DATABASE_URL` son opcionales para integraciones.
-
-├── scripts/
-│   ├── collect_defi_data.py         # Fetch datos DeFi Llama
-│   ├── generate_dashboard.py        # Generar JSON dashboard
-│   ├── jira_integration.py          # Integración Jira
-│   └── legacy/                      # Scripts obsoletos (Newsletter)
-├── data/
-│   ├── protocols.json               # Datos de protocolos
-│   └── dashboard.json               # Dashboard generado
-├── docs/
-│   ├── ROADMAP.md                   # Plan de desarrollo
-│   ├── MONETIZATION.md              # Estrategia de monetización
-│   └── ARCHITECTURE.md              # Arquitectura técnica
-├── learning/
-│   ├── aave-notes.md                # Notas sobre Aave
-│   └── defi-glossary.md             # Glosario DeFi
-├── .env.example                     # Variables de entorno
-├── requirements.txt                 # Dependencias Python
-└── README.md                        # Este archivo
+freelance-portfolio/
+ docs/
+   ├── index.html                    # 🎨 Portfolio web principal
+   ├── PORTFOLIO.md                  # 📝 Guía para crear portfolio
+   ├── SERVICES_CATALOG.md           # 💰 Servicios y precios
+   ├── PROPOSAL_TEMPLATES.md         # 📄 Templates de propuestas
+   ├── OUTREACH_TEMPLATES.md         # 📧 Emails para clientes
+   ├── UPWORK_PROFILE.md             # 💼 Perfil Upwork/Fiverr
+   ├── FREELANCE_PLAN_30-60-90.md    # 📊 Plan de negocio
+   └── README_FREELANCE.md           # 📚 Guía completa freelance
+ .env.example                      # ⚙️ Variables de entorno
+ .gitignore                        # 🚫 Archivos ignorados
+ README.md                         # 📖 Este archivo
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🎨 Portfolio Web
 
-### 1. Clonar el repositorio
+El portfolio en `docs/index.html` incluye:
 
-```bash
-git clone https://github.com/arturo393/defi-monitor.git
-cd defi-monitor
-```
+- **Header**: Nombre, tagline, navegación
+- **Hero section**: Presentación y CTA
+- **Projects**: Showcase de proyectos con demos visuales
+- **Skills**: Tecnologías y herramientas
+- **Contact**: Links a GitHub, LinkedIn, Email
 
-### 2. Instalar dependencias
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configurar variables de entorno
-
-```bash
-cp .env.example .env
-nano .env  # Editar con tus credenciales
-```
-
-**Variables requeridas:**
-```bash
-# Jira (para project management)
-JIRA_EMAIL=your-email@example.com
-JIRA_API_TOKEN=your-token
-JIRA_SERVER=https://your-domain.atlassian.net
-JIRA_PROJECT_KEY=DM
-
-# DeFi Llama API (no requiere token)
-DEFI_LLAMA_BASE_URL=https://api.llama.fi
-```
-
-### 4. Ejecutar scripts
-
-```bash
-# Recolectar datos de DeFi Llama
-python scripts/collect_defi_data.py
-
-# Generar dashboard JSON
-python scripts/generate_dashboard.py
-
-# Verificar dashboard generado
-cat data/dashboard.json
-```
+**Features:**
+- ✅ Responsive design (mobile-first)
+- ✅ Dark theme moderno
+- ✅ Modales interactivos para demos
+- ✅ Sin dependencias (HTML/CSS puro)
+- ✅ Fácil de personalizar
 
 ---
 
-## �� Dashboard JSON Schema
+## 💼 Servicios Ofrecidos
 
-El archivo `data/dashboard.json` contiene:
+Basado en `docs/SERVICES_CATALOG.md`:
 
-```json
-{
-  "updated_at": "2025-11-28T20:00:00",
-  "version": "1.0",
-  "summary": {
-    "total_protocols": 10,
-    "avg_tvl": 34664707531,
-    "total_tvl": 346647075319,
-    "avg_apy": 5.2,
-    "max_apy": 12.5
-  },
-  "top_protocols": [
-    {
-      "name": "Lido",
-      "tvl": 32000000000,
-      "apy": 3.2,
-      "category": "Liquid Staking"
-    }
-  ],
-  "alerts": [
-    {
-      "protocol": "Aave V3",
-      "apy": 55.3,
-      "type": "high_yield",
-      "severity": "medium",
-      "message": "Aave V3 tiene APY de 55.30% (>50%)"
-    }
-  ],
-  "metadata": {
-    "source": "DeFi Llama API",
-    "refresh_interval": "6 hours"
-  }
-}
-```
+| Servicio | Duración | Precio |
+|----------|----------|--------|
+| **Data Pipeline** | 2-3 semanas | $2,000-3,000 |
+| **Web Scraping** | 1-2 semanas | $1,500-2,500 |
+| **Dashboard Interactivo** | 2-4 semanas | $2,500-4,000 |
+| **Automatización** | 1-2 semanas | $1,000-2,000 |
+
+Ver catálogo completo en [SERVICES_CATALOG.md](docs/SERVICES_CATALOG.md)
 
 ---
 
-## 🤖 Automatización
+## 📈 Plan de Negocio
 
-### GitHub Actions Workflow
+Sigue el plan **30-60-90 días** en `docs/FREELANCE_PLAN_30-60-90.md`:
 
-El dashboard se actualiza **automáticamente cada 6 horas**:
+### Mes 1 (Días 1-30): Setup
+- ✅ Crear portfolio
+- ✅ Configurar perfiles (Upwork, Fiverr)
+- ✅ Primeras propuestas
 
-- **Horarios:** 00:00, 06:00, 12:00, 18:00 UTC
-- **Workflow:** `.github/workflows/monitor-dashboard.yml`
-- **Pasos:**
-  1. Fetch datos de DeFi Llama
-  2. Generar dashboard JSON
-  3. Verificar alertas
-  4. Commit automático de datos actualizados
+### Mes 2 (Días 31-60): Primeros Clientes
+- 🎯 3-5 propuestas/día
+- 🎯 1-2 clientes pequeños
+- 🎯 $500-1,000 ingresos
 
-### Ejecución Manual
-
-```bash
-# Trigger workflow desde GitHub UI:
-Actions → DeFi Monitor Dashboard Update → Run workflow
-
-# O ejecutar localmente:
-./scripts/refactor_phase3.sh
-```
+### Mes 3 (Días 61-90): Escalamiento
+- 🎯 Cliente grande ($2,000+)
+- 🎯 5-10 propuestas/día
+- 🎯 $2,000-3,000 ingresos
 
 ---
 
-## 🔔 Sistema de Alertas
+## 🛠️ Tech Stack
 
-### Criterios de Alerta
+**Portfolio:**
+- HTML5 + CSS3 (vanilla, sin frameworks)
+- Responsive design
+- Dark theme
 
-| Tipo | Condición | Severidad |
-|------|-----------|-----------|
-| `high_yield` | APY > 50% | Medium |
-| `high_yield` | APY > 100% | High |
-
-### Configuración Futura (Roadmap)
-
-- ✅ Detección automática de yields altos
-- 🚧 Envío por email (SMTP)
-- 🚧 Envío por SMS (Twilio)
-- 🚧 Webhooks para integraciones custom
-
----
-
-## 💰 Monetización
-
-### Modelo de Negocio
-
-| Plan | Precio | Features |
-|------|--------|----------|
-| **Free** | $0/mes | Dashboard público, datos cada 6h |
-| **Pro** | $15/mes | Alertas email, datos cada 1h, históricos 30 días |
-| **Enterprise** | $50/mes | API access, webhooks, históricos ilimitados |
-
-Ver más en [docs/MONETIZATION.md](docs/MONETIZATION.md)
-
----
-
-## 📈 Roadmap
-
-### ✅ Fase 1: MVP (Completado)
-- [x] Recolección de datos DeFi Llama
-- [x] Generación de dashboard JSON
-- [x] Automatización GitHub Actions
-- [x] Sistema de alertas básico
-
-### 🚧 Fase 2: Alertas (En progreso)
-- [ ] Integración SMTP para emails
-- [ ] Integración Twilio para SMS
-- [ ] Configuración de umbrales personalizados
-- [ ] Dashboard web básico (frontend)
-
-### 📅 Fase 3: API REST (Q1 2026)
-- [ ] FastAPI backend
-- [ ] Endpoints para yields, protocolos, históricos
-- [ ] Autenticación JWT
-- [ ] Rate limiting
-
-### 📅 Fase 4: Monetización (Q2 2026)
-- [ ] Integración Stripe
-- [ ] Sistema de suscripciones
-- [ ] Dashboard premium features
-- [ ] Analytics y métricas de usuarios
-
-Ver roadmap completo en [docs/ROADMAP.md](docs/ROADMAP.md)
-
----
-
-## 🧪 Testing
-
-```bash
-# Test data collection
-python scripts/collect_defi_data.py
-
-# Test dashboard generation
-python scripts/generate_dashboard.py
-
-# Verify JSON output
-cat data/dashboard.json | python -m json.tool
-```
+**Servicios ofrecidos:**
+- Python 3.11+ (data pipelines, automation)
+- JavaScript/Node.js (web scraping, APIs)
+- React/Next.js (dashboards)
+- PostgreSQL/MongoDB (databases)
+- AWS/GCP (cloud deployment)
 
 ---
 
 ## 📚 Documentación
 
-- **[ROADMAP.md](docs/ROADMAP.md)** - Plan de desarrollo a 6 meses
-- **[MONETIZATION.md](docs/MONETIZATION.md)** - Estrategia de ingresos
-- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Arquitectura técnica
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Comandos útiles
-- **[MIGRATION_PLAN.md](MIGRATION_PLAN.md)** - Plan de migración desde Newsletter
+- **[PORTFOLIO.md](docs/PORTFOLIO.md)** - Cómo crear un portfolio efectivo
+- **[SERVICES_CATALOG.md](docs/SERVICES_CATALOG.md)** - Servicios y pricing
+- **[PROPOSAL_TEMPLATES.md](docs/PROPOSAL_TEMPLATES.md)** - Templates para propuestas
+- **[OUTREACH_TEMPLATES.md](docs/OUTREACH_TEMPLATES.md)** - Emails de outreach
+- **[UPWORK_PROFILE.md](docs/UPWORK_PROFILE.md)** - Optimizar perfil Upwork
+- **[FREELANCE_PLAN_30-60-90.md](docs/FREELANCE_PLAN_30-60-90.md)** - Plan de negocio
+- **[README_FREELANCE.md](docs/README_FREELANCE.md)** - Guía completa
 
 ---
 
-## 🔗 Links Útiles
+## 🚀 Deploy Portfolio
 
-- **GitHub Repo:** [github.com/arturo393/defi-monitor](https://github.com/arturo393/defi-monitor)
-- **DeFi Llama API:** [docs.llama.fi](https://defillama.com/docs/api)
-- **Jira Board:** [averas-1744767979220.atlassian.net](https://averas-1744767979220.atlassian.net)
+### GitHub Pages
+
+```bash
+# 1. Push a GitHub
+git add -A
+git commit -m "feat: Add freelance portfolio"
+git push origin main
+
+# 2. Configurar GitHub Pages
+# Settings → Pages → Source: main branch → /docs
+```
+
+Tu portfolio estará en: `https://tu-usuario.github.io/repo-name/`
+
+### Netlify
+
+```bash
+# 1. Instalar Netlify CLI
+npm install -g netlify-cli
+
+# 2. Deploy
+cd docs/
+netlify deploy --prod
+```
+
+---
+
+## ✅ Checklist de Personalización
+
+- [ ] Actualizar nombre y tagline en `index.html`
+- [ ] Agregar tus proyectos con screenshots/demos
+- [ ] Actualizar skills y tecnologías
+- [ ] Cambiar links de contacto (GitHub, LinkedIn, Email)
+- [ ] Personalizar `SERVICES_CATALOG.md` con tus precios
+- [ ] Adaptar `PROPOSAL_TEMPLATES.md` a tu estilo
+- [ ] Configurar `.env` con tus credenciales
+- [ ] Crear perfil en Upwork/Fiverr
+- [ ] Deploy portfolio en GitHub Pages
 
 ---
 
@@ -287,30 +215,6 @@ Este es un proyecto personal, pero las sugerencias son bienvenidas:
 
 ---
 
-## 📝 Changelog
-
-### v1.0.0 (28 Nov 2025) - Migración de DeFi Newsletter
-
-**BREAKING CHANGES:**
-- Migrado de `defi-newsletter` a `defi-monitor`
-- Newsletter generation eliminada
-- Focus en dashboard automatizado con yields
-
-**Nuevas Features:**
-- ✅ Dashboard JSON generator
-- ✅ GitHub Actions automation (cada 6h)
-- ✅ Sistema de alertas (APY > 50%)
-- ✅ Integración DeFi Llama API
-
-**Deprecado:**
-- ❌ Beehiiv/Substack publishing
-- ❌ Newsletter Markdown generation
-- ❌ Weekly schedule (ahora cada 6h)
-
-Ver detalles completos en [MIGRATION_PLAN.md](MIGRATION_PLAN.md)
-
----
-
 ## 📄 Licencia
 
 MIT License - Ver [LICENSE](LICENSE) para más detalles
@@ -323,12 +227,12 @@ MIT License - Ver [LICENSE](LICENSE) para más detalles
 
 ---
 
-## 🙏 Agradecimientos
+## 🔗 Links
 
-- **DeFi Llama** - Por proveer API gratuita de datos DeFi
-- **GitHub Actions** - Por automatización CI/CD gratuita
-- **Python Community** - Por excelentes librerías
+- **Portfolio Live:** [Agregar URL cuando deploys]
+- **Upwork:** [Agregar perfil]
+- **LinkedIn:** [Agregar perfil]
 
 ---
 
-**¿Te gusta este proyecto?** Dale una ⭐ en GitHub!
+**¿Te gusta este starter kit?** Dale una ⭐ en GitHub y úsalo para tu negocio freelance!
